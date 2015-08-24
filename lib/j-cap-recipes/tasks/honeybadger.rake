@@ -10,7 +10,7 @@ namespace :honeybadger do
       user            = local_user || ENV['USER'] || ENV['USERNAME']
       async_notify    = fetch(:honeybadger_async_notify, false)
 
-      rake_task_args  = "TO=#{honeybadger_env} REPO=#{repo_url} USER=#{user}"
+      rake_task_args  = "TO=#{honeybadger_env} REPO=#{repo_url} USER='#{user}'"
       rake_task_args  << " #{ENV['API_KEY']}" if ENV['API_KEY']
       rake_task_args  << ' DRY_RUN=true' if dry_run
 
